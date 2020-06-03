@@ -47,7 +47,9 @@ class App extends React.Component {
                 this.setTasks(tasks)}}
             setError={(message)=>{this.setError(message)}}
             />
-          <ItemList tasks={this.state.tasks}/>
+          <ItemList
+            tasks={this.state.tasks}
+            setTasks={(tasks)=>{this.setTasks(tasks)}}/>
         </div>
     );
   }

@@ -15,7 +15,8 @@ export default class Itemlist extends React.Component {
         return(
             <Todoitem
                 tasks={this.props.tasks}
-                date={this.state.date} />
+                date={this.state.date}
+                setTasks={this.props.setTasks}/>
         )
     }
 }
