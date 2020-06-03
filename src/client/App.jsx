@@ -9,6 +9,7 @@ class App extends React.Component {
         this.state = {
             currentTask: "",
             tasks: [],
+            error: ''
         }
     }
 
@@ -25,6 +26,12 @@ class App extends React.Component {
         })
     }
 
+    setError(message){
+        this.setState({
+            error: message
+        })
+    }
+
 
     render() {
 
@@ -33,9 +40,11 @@ class App extends React.Component {
           <Form
             currentTask={this.state.currentTask}
             tasks={this.state.tasks}
+            error={this.state.error}
             setCurrentTask={(task)=>{this.setCurrentTask(task)}}
             setTasks={(tasks)=> {
                 this.setTasks(tasks)}}
+            setError={(message)=>{this.setError(message)}}
             />
           <ItemList tasks={this.state.tasks}/>
         </div>

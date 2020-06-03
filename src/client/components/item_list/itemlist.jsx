@@ -11,7 +11,6 @@ export default class Itemlist extends React.Component {
     }
 
     render() {
-
         return(
             <Todoitem
                 tasks={this.props.tasks}

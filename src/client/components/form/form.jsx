@@ -11,10 +11,19 @@ class Form extends React.Component {
     }
 
     clickHandler(event){
-        let addTask = this.props.tasks;
-        addTask.push(this.props.currentTask);
+        let allTasks = this.props.tasks;
+        let addTask = this.props.currentTask
 
-        this.props.setTasks(addTask)
+        if (addTask.length < 1) {
+            this.props.setError('You have more to do then that.. (min. 1 character)')
+        } else if (addTask.length > 200) {
+            this.props.setError('Woah slow down! (max. 200 characters)')
+        } else {
+            allTasks.push(addTask);
+            this.props.setTasks(addTask)
+        }
+
+
     }
 
   render() {
@@ -31,6 +40,7 @@ class Form extends React.Component {
                 placeholder='Type tasks here..'
             />
         </h2>
+        <p className='error'>{this.props.error}</p>
         <button
             className='submit'
             onClick={(event)=>{this.clickHandler(event)}}>
