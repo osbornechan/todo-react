@@ -15,12 +15,13 @@ class Form extends React.Component {
         let addTask = this.props.currentTask
 
         if (addTask.length < 1) {
-            this.props.setError('You have more to do then that.. (min. 1 character)')
+            this.props.setError('You have more to do than that.. (min. 1 character)')
         } else if (addTask.length > 200) {
             this.props.setError('Woah slow down! (max. 200 characters)')
         } else {
             allTasks.push(addTask);
-            this.props.setTasks(addTask)
+            this.props.setTasks(allTasks);
+            this.props.setCurrentTask('');
         }
 
 

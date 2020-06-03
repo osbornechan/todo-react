@@ -24,6 +24,7 @@ class App extends React.Component {
         this.setState({
             tasks: tasks
         })
+        console.log(this.state.tasks)
     }
 
     setError(message){
